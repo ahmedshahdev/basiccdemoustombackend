@@ -31,8 +31,22 @@ class JSWEB {
 let jw = new JSWEB();
 
 
+// django style
 jw.router('/', middleware, (req, res)=>{
     return jw.render('index.html')
+})
+
+// express style
+jw.router('/', middleware, (req, res)=>{
+    res.render('index.html')
+})
+
+jw.router('/contact', middleware, (req, res)=>{
+    return jw.render('contact.html')
+})
+
+jw.router('/about', middleware, (req, res)=>{
+    return jw.render('about.html')
 })
 
 jw.launch(3000, 'localhost', (port, hostname)=>{
